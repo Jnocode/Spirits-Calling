@@ -25,8 +25,8 @@
 - **引擎**：Unreal Engine 5.4+
 - **語言**：C++ / Blueprints
 - **VR支援**：OpenXR、SteamVR、Oculus SDK
-- **網路/多人**：Unreal Multiplayer Framework（Online Subsystem）
-- **資料庫/雲端**：PlayFab / AWS / Azure（視需求擴充）
+- **網路/多人**：Nakama (開源遊戲後端) / Unreal Multiplayer Framework
+- **資料庫/雲端**：PostgreSQL (via Nakama) / AWS / Azure
 
 ## 建議資料夾結構
 ```

@@ -3,11 +3,11 @@
 ## 1. 技術棧
 - Unreal Engine 5
 - C++/Blueprints
-- AWS/Azure 雲端
-- PlayFab/自建伺服器
+- Backend: Nakama (Docker/Go/Lua)
+- Database: PostgreSQL
 
 ## 2. 架構圖
-- 客戶端（PC/VR）→ 遊戲伺服器 → 雲端資料庫
+- 客戶端（PC/VR）→ Nakama Server (Game Backend) → PostgreSQL
 - 健康 APP 整合（API）
 
 ## 3. 主要模組類圖
