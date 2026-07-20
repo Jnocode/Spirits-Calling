@@ -43,9 +43,14 @@ def preflight(do_build=False):
         bat = os.path.join(ROOT, "_build_s2s3.bat")
         if os.path.exists(bat):
             print("  觸發 UBT 重編中（可能 2-3 分鐘）...")
-            r = subprocess.run(["cmd", "/c", bat], capture_output=True, text=True)
-            check("A0 UBT 重編", "PASS" if r.returncode == 0 else "FAIL",
-                  f"exit={r.returncode}")
+            subprocess.run(["cmd", "/c", bat], capture_output=True, text=True)
+            # 不信任 wrapper exit code（bat 最後一行 echo 會蓋掉真正的 build errorlevel）；
+            # 直接回讀 log 的 EXITCODE 行才是編譯結果的權威。
+            _log = os.path.join(ROOT, "_build_log.txt")
+            _txt = open(_log, encoding="utf-8", errors="replace").read() if os.path.exists(_log) else ""
+            _ok = "EXITCODE=0" in _txt
+            check("A0 UBT 重編", "PASS" if _ok else "FAIL",
+                  "log EXITCODE=0" if _ok else "log 顯示編譯失敗（見 A1 與 _build_log.txt）")
         else:
             check("A0 UBT 重編", "SKIP", "_build_s2s3.bat 不存在")
 
