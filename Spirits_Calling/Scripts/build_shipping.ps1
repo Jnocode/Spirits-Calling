@@ -227,3 +227,21 @@ $Metadata = [ordered]@{
 $MetadataPath = Join-Path $OutputDirectory "SpiritsCalling-PackageMetadata.json"
 $Metadata | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $MetadataPath -Encoding UTF8
 Write-Host "Package metadata: $MetadataPath"
+
+# Export the cooked-object manifest (canonical-case) from the cook's authoritative
+# ReferencedSet.txt so audio/closure validators can verify THIS package's cook set.
+# Non-fatal: a missing exporter or ReferencedSet must not fail an otherwise-good build.
+$Exporter = Join-Path $PSScriptRoot "export_cooked_manifest.py"
+if (Test-Path -LiteralPath $Exporter -PathType Leaf) {
+    $Python = Get-Command python -ErrorAction SilentlyContinue
+    if ($null -ne $Python) {
+        & $Python.Source $Exporter --package-metadata $MetadataPath
+        if ($LASTEXITCODE -ne 0) {
+            Write-Warning "Cooked-manifest export returned $LASTEXITCODE (validators may lack cook evidence)."
+        }
+    } else {
+        Write-Warning "python not found on PATH; skipped cooked-manifest export."
+    }
+} else {
+    Write-Warning "export_cooked_manifest.py not found; skipped cooked-manifest export."
+}
