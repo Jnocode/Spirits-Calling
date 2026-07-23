@@ -74,9 +74,10 @@ Spirits_Calling/Content/Weapons/
 *.slnx
 UpgradeLog.htm
 
-# 本機 build/驗證暫存 log（agent headless 產出）+ 根目錄 dev log
+# 本機 build/驗證暫存 log 與一次性 dev 腳本（agent headless / ComfyUI/VFX 產出）
 _*.log
 _*.txt
+_*.bat
 _p16_*.txt
 _matparam_*.txt
 _workflow_dump.json
