@@ -130,7 +130,8 @@ def preflight(do_build=False):
           f"DefaultGame.ini ↔ SpiritsVersion.json: {version_report['status']}; report={VERSION_REPORT_PATH}")
 
     # A6 打包產物（WARN not FAIL：P0-5 未做時預期為空）
-    exes = glob.glob(os.path.join(ROOT, "Builds", "Windows", "**", "*.exe"), recursive=True)
+    # build_shipping.ps1 輸出到 PROJ/Builds/Windows（非 git root），A6 必須 glob PROJ。
+    exes = glob.glob(os.path.join(PROJ, "Builds", "Windows", "**", "*.exe"), recursive=True)
     check("A6 打包產物", "PASS" if exes else "WARN",
           f"{len(exes)} exe in Builds/Windows" if exes else "尚未打包（P0-5 待做）")
 
