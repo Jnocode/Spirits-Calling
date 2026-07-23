@@ -46,6 +46,8 @@ Spirits_Calling/Intermediate/
 Spirits_Calling/Saved/
 Spirits_Calling/DerivedDataCache/
 Spirits_Calling/Build/
+# Packaged Shipping output (build_shipping.ps1 archive target, ~700MB) — never in git
+Spirits_Calling/Builds/
 # 保底：任何層級的這些資料夾都擋（防未來搬動路徑）
 **/Binaries/
 **/Intermediate/
