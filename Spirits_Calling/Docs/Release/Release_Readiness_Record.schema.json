@@ -1,0 +1,372 @@
+{
+  "title": "Spirits Calling Release_Readiness_Record",
+  "description": "Canonical JSON source for package acceptance, smoke evidence and release gates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "packageAcceptance", "packageVersion", "sourceRevision",
+    "engineVersion", "cookMaps", "platform", "configuration", "ioStore",
+    "packagePath", "launchLog", "smokeMatrix", "gates", "evidence",
+    "unresolvedIssues", "earliestFailure", "machine", "releaseScope", "stability"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0" },
+    "packageAcceptance": { "type": "string", "enum": ["blocked", "not_ready", "ready"] },
+    "packageVersion": { "type": "string", "minLength": 1 },
+    "sourceRevision": { "type": "string", "minLength": 1 },
+    "engineVersion": { "type": "string", "const": "5.8" },
+    "cookMaps": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "platform": { "type": "string", "minLength": 1 },
+    "configuration": { "type": "string", "minLength": 1 },
+    "ioStore": { "type": "boolean", "const": true },
+    "packagePath": { "type": "string", "minLength": 1 },
+    "launchLog": { "type": "string", "minLength": 1 },
+    "smokeMatrix": { "$ref": "#/$defs/smokeMatrix" },
+    "gates": {
+      "type": "array", "minItems": 1,
+      "items": { "$ref": "#/$defs/gate" }
+    },
+    "evidence": {
+      "type": "array", "minItems": 1,
+      "items": { "$ref": "#/$defs/evidence" }
+    },
+    "unresolvedIssues": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/unresolvedIssue" }
+    },
+    "assetValidation": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/assetValidation" }
+    },
+    "skyboxExceptions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/skyboxException" }
+    },
+    "earliestFailure": {
+      "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/earliestFailure" }]
+    },
+    "machine": { "$ref": "#/$defs/machine" },
+    "releaseScope": { "$ref": "#/$defs/releaseScope" },
+    "hardwareEvidence": { "$ref": "#/$defs/hardwareEvidence" },
+    "stability": { "$ref": "#/$defs/stability" }
+  },
+  "$defs": {
+    "status": {
+      "type": "string",
+      "enum": ["pass", "fail", "not_run", "blocked"]
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "owner", "status", "evidencePath", "timestamp"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "owner": { "type": "string", "minLength": 1 },
+        "priority": { "type": "string", "enum": ["P0", "P1", "P2"] },
+        "status": { "$ref": "#/$defs/status" },
+        "evidencePath": { "type": "string", "minLength": 1 },
+        "timestamp": { "type": "string", "minLength": 1 },
+        "failureReason": { "type": "string", "minLength": 1 },
+        "resolutionStatus": {
+          "type": "string", "enum": ["open", "in_progress", "resolved"]
+        },
+        "checks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/gateCheck" }
+        }
+      },
+      "allOf": [{
+        "if": {
+          "required": ["status"],
+          "properties": { "status": { "const": "pass" } }
+        },
+        "then": {},
+        "else": { "required": ["failureReason", "resolutionStatus"] }
+      }]
+    },
+    "gateCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "source", "status", "evidencePath"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/status" },
+        "evidencePath": { "type": "string", "minLength": 1 },
+        "failureReason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "releaseScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["documentPath", "includedCapabilities", "excludedCapabilities"],
+      "properties": {
+        "documentPath": { "type": "string", "minLength": 1 },
+        "includedCapabilities": {
+          "type": "array", "minItems": 3,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "excludedCapabilities": {
+          "type": "array", "minItems": 4,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "path"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "smokeCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/status" },
+        "evidencePath": { "type": ["string", "null"] },
+        "note": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "allOf": [{
+        "if": {
+          "required": ["status"],
+          "properties": { "status": { "const": "pass" } }
+        },
+        "then": {
+          "required": ["evidencePath"],
+          "properties": { "evidencePath": { "type": "string", "minLength": 1 } }
+        }
+      }]
+    },
+    "smokeMatrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cases"],
+      "properties": {
+        "cases": {
+          "type": "array", "minItems": 1,
+          "items": { "$ref": "#/$defs/smokeCase" }
+        }
+      }
+    },
+    "assetValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "runtimeReady", "hook"],
+      "properties": {
+        "id": { "type": ["string", "null"] },
+        "source": { "type": "string", "minLength": 1 },
+        "runtimePath": { "type": ["string", "null"] },
+        "hook": { "type": "string", "minLength": 1 },
+        "runtimeReady": { "type": "boolean" },
+        "classification": { "type": "string", "enum": ["runtime", "store_only"] },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "skyboxExceptionDocumented": { "type": "boolean" },
+        "failureCode": { "type": ["string", "null"] },
+        "failureReason": { "type": ["string", "null"] }
+      },
+      "allOf": [{
+        "if": {
+          "required": ["runtimeReady"],
+          "properties": {
+            "runtimeReady": { "const": false },
+            "classification": { "not": { "const": "store_only" } }
+          }
+        },
+        "then": { "required": ["failureCode", "failureReason"] }
+      }]
+    },
+    "skyboxException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exceptionId", "source", "documented", "status", "evidencePath"],
+      "properties": {
+        "exceptionId": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "documented": { "type": "boolean", "const": true },
+        "status": { "type": "string", "enum": ["pass", "approved", "fail", "not_run", "blocked"] },
+        "evidencePath": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "unresolvedIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "gateId", "reason", "evidencePath", "resolutionStatus"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "gateId": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 },
+        "evidencePath": { "type": "string", "minLength": 1 },
+        "resolutionStatus": { "type": "string", "enum": ["open", "in_progress", "resolved"] }
+      }
+    },
+    "earliestFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["step", "reason", "logPath"],
+      "properties": {
+        "sequence": { "type": "integer", "minimum": 0 },
+        "step": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 },
+        "logPath": { "type": "string", "minLength": 1 },
+        "timestamp": { "type": "string", "minLength": 1 }
+      }
+    },
+    "machine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["os", "cpu", "gpu", "ram"],
+      "properties": {
+        "os": { "type": "string", "minLength": 1 },
+        "cpu": { "type": "string", "minLength": 1 },
+        "gpu": { "type": "string", "minLength": 1 },
+        "ram": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hardwareEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "runs"],
+      "properties": {
+        "schemaVersion": { "type": "string", "const": "1.0" },
+        "runs": {
+          "type": "array", "minItems": 1,
+          "items": { "$ref": "#/$defs/hardwareRun" }
+        }
+      }
+    },
+    "hardwareRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "adapter", "executionMode", "status", "timestamp", "buildVersion",
+        "sourceRevision", "hmd", "runtime", "hardwarePresent", "modeSelection",
+        "machine", "cases", "evidencePaths", "failureReasons"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "adapter": { "type": "string", "enum": ["quest_link", "steamvr"] },
+        "executionMode": { "type": "string", "enum": ["live", "fixture"] },
+        "status": { "$ref": "#/$defs/status" },
+        "timestamp": { "type": "string", "minLength": 1 },
+        "buildVersion": { "type": "string", "minLength": 1 },
+        "sourceRevision": { "type": "string", "minLength": 1 },
+        "hmd": { "type": "string", "minLength": 1 },
+        "runtime": { "type": "string", "minLength": 1 },
+        "hardwarePresent": { "type": "boolean" },
+        "modeSelection": { "$ref": "#/$defs/hardwareModeSelection" },
+        "machine": { "$ref": "#/$defs/machine" },
+        "cases": {
+          "type": "array", "minItems": 5,
+          "items": { "$ref": "#/$defs/hardwareCase" }
+        },
+        "evidencePaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "failureReasons": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "hardwareModeSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selectedMode", "detected"],
+      "properties": {
+        "selectedMode": { "type": "string", "minLength": 1 },
+        "detected": { "type": "boolean" }
+      }
+    },
+    "hardwareCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status"],
+      "properties": {
+        "id": { "type": "string", "enum": ["menu", "possession", "summon", "heavy_attack", "return_to_spirit"] },
+        "status": { "$ref": "#/$defs/status" },
+        "note": { "type": "string" },
+        "screenshotPath": { "type": ["string", "null"] },
+        "logPath": { "type": ["string", "null"] },
+        "videoPath": { "type": ["string", "null"] }
+      }
+    },
+    "stability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status", "measurementStatus", "readinessEligible", "executionMode", "evidenceSource",
+        "requestedDurationSeconds", "observedDurationSeconds", "queryTimeoutSeconds",
+        "maxAllowedHangSeconds", "startedAt", "endedAt", "crashDetected", "crashTimestamp",
+        "hangDetected", "maxConsecutiveHangSeconds", "queries", "memory", "machine", "failureReasons"
+      ],
+      "properties": {
+        "status": { "$ref": "#/$defs/status" },
+        "measurementStatus": { "$ref": "#/$defs/status" },
+        "readinessEligible": { "type": "boolean" },
+        "executionMode": { "type": "string", "enum": ["live", "fixture"] },
+        "evidenceSource": { "type": "string", "minLength": 1 },
+        "requestedDurationSeconds": { "type": "number", "minimum": 0 },
+        "observedDurationSeconds": { "type": "number", "minimum": 0 },
+        "queryTimeoutSeconds": { "type": "number", "const": 5 },
+        "maxAllowedHangSeconds": { "type": "number", "const": 10 },
+        "startedAt": { "type": "string", "minLength": 1 },
+        "endedAt": { "type": "string", "minLength": 1 },
+        "crashDetected": { "type": "boolean" },
+        "crashTimestamp": { "type": ["string", "null"] },
+        "hangDetected": { "type": "boolean" },
+        "maxConsecutiveHangSeconds": { "type": "number", "minimum": 0 },
+        "queries": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/stabilityQuery" }
+        },
+        "memory": { "$ref": "#/$defs/stabilityMemory" },
+        "machine": { "$ref": "#/$defs/machine" },
+        "failureReasons": {
+          "type": "array", "items": { "type": "string", "minLength": 1 }
+        },
+        "samples": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "stabilityQuery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timestamp", "latencySeconds", "responded"],
+      "properties": {
+        "timestamp": { "type": "string", "minLength": 1 },
+        "elapsedSeconds": { "type": "number", "minimum": 0 },
+        "latencySeconds": { "type": "number", "minimum": 0 },
+        "responded": { "type": "boolean" },
+        "hangSeconds": { "type": "number", "minimum": 0 }
+      }
+    },
+    "stabilityMemory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["atFiveMinutes", "atEnd", "growthRatio", "maxGrowthRatio", "withinThreshold"],
+      "properties": {
+        "atFiveMinutes": { "$ref": "#/$defs/memoryReading" },
+        "atEnd": { "$ref": "#/$defs/memoryReading" },
+        "growthRatio": { "type": ["number", "null"] },
+        "maxGrowthRatio": { "type": "number", "const": 0.2 },
+        "withinThreshold": { "type": "boolean" }
+      }
+    },
+    "memoryReading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timestamp", "privateWorkingSetBytes"],
+      "properties": {
+        "timestamp": { "type": "string", "minLength": 1 },
+        "privateWorkingSetBytes": { "type": ["integer", "null"], "minimum": 0 }
+      }
+    }
+  }
+}

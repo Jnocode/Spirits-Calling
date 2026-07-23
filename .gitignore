@@ -61,7 +61,29 @@ Spirits_Calling/Build/
 Spirits_Calling/Content/BigNiagaraBundle/
 Spirits_Calling/Content/sA_PickupSet_1/
 
-# 本機 build/驗證暫存 log（agent headless 產出）
+# ── UE VR 範本內容（非原創，VR pawn 可能引用；本機保留，不入 git）──
+# 使用者選擇 gitignore（~55MB）；fresh clone 需從 UE VR Template 補回。
+Spirits_Calling/Content/VRTemplate/
+Spirits_Calling/Content/XRMannequins/
+Spirits_Calling/Content/XRFramework/
+Spirits_Calling/Content/VRSpectator/
+Spirits_Calling/Content/LevelPrototyping/
+Spirits_Calling/Content/Weapons/
+
+# 生成的 solution / VS 雜項
+*.slnx
+UpgradeLog.htm
+
+# 本機 build/驗證暫存 log（agent headless 產出）+ 根目錄 dev log
 _*.log
+_*.txt
 _p16_*.txt
 _matparam_*.txt
+_workflow_dump.json
+
+# 冒煙測試自動產出的結果檔（transient）
+SMOKE_RESULT_*.md
+
+# Python 編譯垃圾
+__pycache__/
+*.pyc

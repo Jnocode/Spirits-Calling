@@ -1,0 +1,21 @@
+--- Blueprint Complexity Report (Size & Dependencies) ---
+Total Blueprints: 17
+Format: [Size KB | Dependencies] Path
+
+[   0.0 KB |   5 Refs] /Game/LevelPrototyping/Interactable/Door/BP_DoorFrame.BP_DoorFrame
+[   0.0 KB |   7 Refs] /Game/LevelPrototyping/Interactable/JumpPad/BP_JumpPad.BP_JumpPad
+[   0.0 KB |   6 Refs] /Game/LevelPrototyping/Interactable/Target/BP_WobbleTarget.BP_WobbleTarget
+[   0.0 KB |  16 Refs] /Game/VRSpectator/VRSpectator.VRSpectator
+[   0.0 KB |   0 Refs] /Game/XRFramework/Blueprints/BP_AssetGuideline.BP_AssetGuideline
+[   0.0 KB |   3 Refs] /Game/XRFramework/Blueprints/BP_Grabbable_SmallCube.BP_Grabbable_SmallCube
+[   0.0 KB |   4 Refs] /Game/XRFramework/Blueprints/BP_GrabComponent.BP_GrabComponent
+[   0.0 KB |  18 Refs] /Game/XRFramework/Blueprints/BP_Menu.BP_Menu
+[   0.0 KB |   2 Refs] /Game/XRFramework/Blueprints/BP_Passthrough.BP_Passthrough
+[   0.0 KB |  13 Refs] /Game/XRFramework/Blueprints/BP_Pistol.BP_Pistol
+[   0.0 KB |   4 Refs] /Game/XRFramework/Blueprints/BP_Projectile.BP_Projectile
+[   0.0 KB |   5 Refs] /Game/XRFramework/Blueprints/BP_TeleportVisualizer.BP_TeleportVisualizer
+[   0.0 KB |   1 Refs] /Game/XRFramework/Blueprints/BP_XRGameMode.BP_XRGameMode
+[   0.0 KB |  37 Refs] /Game/XRFramework/Blueprints/BP_XRPawn.BP_XRPawn
+[   0.0 KB |   0 Refs] /Game/XRFramework/Blueprints/BPI_PawnAnim.BPI_PawnAnim
+[   0.0 KB |   1 Refs] /Game/XRFramework/Input/BP_InputModifier_XAxisPositiveOnly.BP_InputModifier_XAxisPositiveOnly
+[   0.0 KB |   3 Refs] /Game/XRMannequins/BP_MannequinsXR.BP_MannequinsXR

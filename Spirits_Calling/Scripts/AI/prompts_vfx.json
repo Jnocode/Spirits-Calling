@@ -1,0 +1,44 @@
+{
+  "_comment": "VFX keyframes for Spirits Calling. Pure BLACK background so the frame reads as an additive/emissive element. Feed each PNG into a ComfyUI video model (LTX-2.3 / Wan 2.2 image-to-video) to animate, then extract frames -> sprite sheet -> UE Niagara SubUV. Keep colors bright and the background solid black.",
+  "defaults": {
+    "width": 512,
+    "height": 512,
+    "steps": 8,
+    "cfg": 2.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "negative": "background, scenery, landscape, room, floor, character, face, text, watermark, gray background, white background, low contrast"
+  },
+  "items": [
+    {
+      "name": "slash_light",
+      "category": "VFX/keyframes",
+      "prompt": "a single bright crescent energy slash, cyan-white glowing arc, sharp motion trail, sparks, on a pure solid black background, additive glow VFX element, game effect, high contrast, centered"
+    },
+    {
+      "name": "slash_heavy",
+      "category": "VFX/keyframes",
+      "prompt": "a huge heavy crescent energy slash, thick fiery orange-gold glowing arc, shockwave, embers, on a pure solid black background, additive glow VFX element, game effect, high contrast, centered"
+    },
+    {
+      "name": "summon_burst",
+      "category": "VFX/keyframes",
+      "prompt": "a burst of rising light particles and a glowing ring shockwave, ethereal blue-white sparks radiating upward, on a pure solid black background, additive glow VFX element, game summon effect, centered"
+    },
+    {
+      "name": "impact_spark",
+      "category": "VFX/keyframes",
+      "prompt": "a small bright impact spark flash, radial white-yellow sparks and a tiny flash core, on a pure solid black background, additive glow VFX element, game hit effect, centered"
+    },
+    {
+      "name": "spirit_aura",
+      "category": "VFX/keyframes",
+      "prompt": "a swirling ethereal aura ring, soft glowing wisps of cyan spirit energy orbiting, smoky trails, on a pure solid black background, additive glow VFX element, seamless looping feel, centered"
+    },
+    {
+      "name": "shrine_pillar",
+      "category": "VFX/keyframes",
+      "prompt": "a vertical beam of light rising to the sky, glowing energy pillar with floating embers and sparks, ethereal, on a pure solid black background, additive glow VFX element, centered"
+    }
+  ]
+}

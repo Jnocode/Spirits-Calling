@@ -1,0 +1,8 @@
+Found 7 assets in /Game/Core/Input:
+ - /Game/Core/Input/Actions/IA_Possess.IA_Possess
+ - /Game/Core/Input/Actions/IA_RTS_Move.IA_RTS_Move
+ - /Game/Core/Input/Actions/IA_Select.IA_Select
+ - /Game/Core/Input/Actions/IA_VR_Move.IA_VR_Move
+ - /Game/Core/Input/Actions/IA_VR_Turn.IA_VR_Turn
+ - /Game/Core/Input/IMC_Possessed.IMC_Possessed
+ - /Game/Core/Input/IMC_Spirit.IMC_Spirit

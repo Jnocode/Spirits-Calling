@@ -1,0 +1,74 @@
+{
+  "_comment": "Spirits Calling — ComfyUI generation table. Each entry becomes one PNG in RawAssets/AI/<category>/<name>.png. Civ tints are applied in-engine over the team color, so keep textures fairly NEUTRAL/GRAYSCALE-leaning with the pattern in the emissive/detail — the engine adds the hue. 'tileable' items must seamlessly tile.",
+  "defaults": {
+    "width": 1024,
+    "height": 1024,
+    "steps": 28,
+    "cfg": 6.5,
+    "sampler": "dpmpp_2m",
+    "scheduler": "karras",
+    "negative": "text, watermark, signature, logo, people, blurry, low quality, jpeg artifacts, seam, border frame"
+  },
+  "items": [
+    {
+      "name": "East_pattern",
+      "category": "Civilizations/East",
+      "tileable": true,
+      "prompt": "seamless tileable ornamental texture, ancient East Asian cloud-and-thunder motif, flowing jade filigree, taoist talisman line-work, subtle emissive glyphs, dark stone base, high detail, orthographic flat pattern, game texture"
+    },
+    {
+      "name": "Norse_pattern",
+      "category": "Civilizations/Norse",
+      "tileable": true,
+      "prompt": "seamless tileable ornamental texture, norse runic knotwork, carved bronze interlace, weathered iron, engraved futhark runes with faint ember glow, dark metal base, high detail, orthographic flat pattern, game texture"
+    },
+    {
+      "name": "Egypt_pattern",
+      "category": "Civilizations/Egypt",
+      "tileable": true,
+      "prompt": "seamless tileable ornamental texture, ancient egyptian hieroglyph relief, gold inlay on sandstone, scarab and ankh motifs, faint warm glow in the carved channels, high detail, orthographic flat pattern, game texture"
+    },
+    {
+      "name": "Cyber_pattern",
+      "category": "Civilizations/Cyber",
+      "tileable": true,
+      "prompt": "seamless tileable ornamental texture, futuristic circuit tracery, glowing violet data-veins, brushed dark alloy panels, neon microchip lattice, high detail, orthographic flat pattern, sci-fi game texture"
+    },
+    {
+      "name": "Arena_Void_ground",
+      "category": "Arenas/Void",
+      "tileable": true,
+      "prompt": "seamless tileable ground texture, polished black obsidian floor, faint cyan glowing cracks, volcanic glass, subtle reflections, top-down orthographic, PBR base color, game texture"
+    },
+    {
+      "name": "Arena_Sands_ground",
+      "category": "Arenas/Sands",
+      "tileable": true,
+      "prompt": "seamless tileable ground texture, cracked desert sandstone tiles, wind-blown golden sand, ancient carved slabs, warm daylight, top-down orthographic, PBR base color, game texture"
+    },
+    {
+      "name": "Arena_Void_sky",
+      "category": "Arenas/Void",
+      "tileable": false,
+      "width": 2048,
+      "height": 1024,
+      "prompt": "equirectangular 360 panorama HDRI, endless night void, deep indigo starfield, distant nebula, a single pale moon, ethereal fog, cinematic, seamless panoramic"
+    },
+    {
+      "name": "Arena_Sands_sky",
+      "category": "Arenas/Sands",
+      "tileable": false,
+      "width": 2048,
+      "height": 1024,
+      "prompt": "equirectangular 360 panorama HDRI, vast desert sky at golden hour, warm haze, scattered clouds, distant dunes on the horizon, cinematic, seamless panoramic"
+    },
+    {
+      "name": "Store_capsule_concept",
+      "category": "Store",
+      "tileable": false,
+      "width": 1600,
+      "height": 640,
+      "prompt": "epic game store hero art, four ethereal spirit warriors of four civilizations (East jade, Norse bronze, Egypt gold, Cyber violet) converging on a glowing soul shrine, dramatic rim light, dark fantasy meets sci-fi, cinematic key art, highly detailed"
+    }
+  ]
+}

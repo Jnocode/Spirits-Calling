@@ -1,0 +1,887 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 建立可被 runtime、automation 與外部 harness 共用的純規則介面": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572224937
+      },
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572235861
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572867567
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572878138
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575443588
+      }
+    ],
+    "2.1 完成 Match FSM、server snapshot、文明 loadout、MapIndex 與 replication": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225186
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572867632
+      },
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579331360
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215282
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613225789
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784615565923
+      }
+    ],
+    "2.2 接通 server-authoritative summon transaction 與 Souls economy": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225271
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572867714
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215416
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711652448
+      }
+    ],
+    "2.3 保存 possession、light/heavy combat、Soul Shrine victory 與死亡 exactly-once": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225320
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572867777
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215539
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711652694
+      }
+    ],
+    "2.4 接回 difficulty snapshot、AI wave deadline/stop 與 AI behavior": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225367
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572867835
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215600
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711652773
+      }
+    ],
+    "2.5 接通 kill feed、warning、HUD presentation 與 restart flow": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225424
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572867886
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215668
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711652816
+      }
+    ],
+    "3. Checkpoint — 完成純規則與 core runtime 後，確保編譯、PBT/automation 與既有玩法回歸測試通過；若出現設計問題，先修正對應 seam 再進入平台與 backend。": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225472
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572867947
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215831
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711652857
+      }
+    ],
+    "4.1 接通 PC_Mode 啟動、PC input contract 與 mode selection": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225546
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868001
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215902
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711652923
+      }
+    ],
+    "4.2 接通 OpenXR PCVR pawn、控制器 action 與 comfort/snap-turn gate": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225594
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868062
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613215970
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711652973
+      }
+    ],
+    "4.3 完成世界空間 VR menu、WidgetInteraction 與 menu input lock": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225662
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868132
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216042
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653031
+      }
+    ],
+    "4.4 完成 LAN host/join、authoritative replication、disconnect 與 failed-join handling": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225717
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868192
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216121
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653087
+      }
+    ],
+    "5.1 完成 UE 5.8 OnlineSubsystemSteam dependency、App ID readiness 與 backend state machine": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225758
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868249
+      },
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579334843
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216202
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613229347
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784615570613
+      }
+    ],
+    "5.2 實作 query-before-write、八個 exact IDs、事件 semantics、threshold 與 owner routing": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225800
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868311
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216281
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653141
+      }
+    ],
+    "6.1 建立 canonical Generated_Asset manifest 與 deterministic import mapping": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225840
+      },
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572239433
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868364
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572882068
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575447746
+      }
+    ],
+    "6.2 實作 texture import validation、failure record 與 skybox exception gate": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225888
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868444
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575467949
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784576416011
+      }
+    ],
+    "6.3 接通 BodyMID、SoulShrine 與 ArenaMaterialHook": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572225942
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868499
+      },
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579338201
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216344
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613233321
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784615574666
+      }
+    ],
+    "6.4 接通 PC/PCVR runtime asset references 與 cook readiness classification": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226018
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868561
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216410
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653193
+      }
+    ],
+    "7.1 固定 UE 5.8 toolchain、version source-of-truth 與 BuildCookRun script": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226072
+      },
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572243114
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868617
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572885858
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575451949
+      }
+    ],
+    "7.2 實作 package closure validator 與 runtime/store classification checker": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226137
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868674
+      },
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579341522
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216477
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613236875
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784615579139
+      }
+    ],
+    "7.3 實作 clean Windows launch、PC match、PCVR/LAN deadline 與 Smoke_Matrix record ingestion": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226202
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868727
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216550
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653237
+      }
+    ],
+    "7.4 實作 Release_Readiness_Record schema、earliest-failure 與 ready/blocked validator": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226256
+      },
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572246818
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868782
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572890419
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575456166
+      }
+    ],
+    "7.5 接入 nine audio one-time import、S_Ambient loop/fallback 與 package metadata checks": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226306
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868844
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216621
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653286
+      }
+    ],
+    "8.1 建立 PCVR hardware evidence adapter（Quest Link/SteamVR）": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226357
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868897
+      },
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579344929
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216751
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613240710
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784615583661
+      }
+    ],
+    "8.2 建立 30 分鐘 stability telemetry runner 與 memory evidence": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226411
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572868961
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575472450
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784576421204
+      }
+    ],
+    "8.3 建立非程式 Steam/store/legal/audio release gate schema 與 scope validator": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226486
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572869017
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575476352
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784576425882
+      }
+    ],
+    "8.4 建立最終 release gate aggregation 與 record reconciliation": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226563
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572869070
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216830
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653346
+      }
+    ],
+    "9. Final checkpoint — 確保所有 automated tests、PBT、Unreal automation、Editor validators、package closure 與 record fixtures 通過；只在實際硬體、Steam account/App ID、clean Windows package、LAN 雙機、SteamVR（若硬體可用）與 30 分鐘 stability evidence 完成後，才可將 `Release_Readiness_Record` 轉為 ready。不得在本任務中修改產品程式碼以外的需求範圍，且本規劃階段不執行實作。": [
+      {
+        "executionId": "b3c1b744-bd8c-4a35-b2c0-d8936d9163ac",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572226650
+      },
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784572869124
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784613216932
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711653403
+      }
+    ],
+    "1. 建立純規則、驗證模型與 PBT 測試基礎": [
+      {
+        "executionId": "3d2b1f91-d592-4ce8-a0aa-5f8a865d4b56",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784575443673
+      }
+    ],
+    "1.2 撰寫 Property P1：文明 loadout shape、欄位有效性與 entry distinctness": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579024915
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616748940
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616818340
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784632368260
+      }
+    ],
+    "1.3 撰寫 Property P2：Map selection、MapIndex replication 與 failed join": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579029603
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616753138
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616823053
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784632374417
+      }
+    ],
+    "1.4 撰寫 Property P3：server summon validation、扣款與 exactly-once refund": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579034360
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616757428
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616827436
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784632380118
+      }
+    ],
+    "1.5 撰寫 Property P4：heavy attack wind-up、hit-stop、倍率與 cancellation": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579039340
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616761684
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616831475
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784632385906
+      }
+    ],
+    "1.6 撰寫 Property P5：Steam achievement exact IDs、semantics、threshold、ownership 與 dedup": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579044295
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616766348
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616840284
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784632390995
+      }
+    ],
+    "1.7 撰寫 Property P6：generated asset manifest、hook、dimension 與 cook classification": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579050305
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616770655
+      }
+    ],
+    "1.8 撰寫 Property P7：LAN replicated match convergence 與 remaining-client liveness": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579055176
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616775200
+      },
+      {
+        "executionId": "83636df0-a19d-41df-937f-ac17ac8f208b",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784711668531
+      }
+    ],
+    "1.9 撰寫 Property P8：PC/PCVR interaction、menu lock、snap-turn gate 與 scope": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579060265
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616779718
+      }
+    ],
+    "1.10 撰寫 Property P9：package closure 與 acceptance record invariant": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579065156
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616784057
+      }
+    ],
+    "2.6 撰寫 core runtime Unreal automation regression suite": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579069712
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616788311
+      }
+    ],
+    "4.5 建立 PC/PCVR/LAN Unreal functional 與 packaged smoke automation": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579074276
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616792340
+      }
+    ],
+    "5.3 建立 Steam/fallback integration regression suite": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579078815
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616796435
+      }
+    ],
+    "6.5 建立 Editor asset pipeline automation tests": [
+      {
+        "executionId": "62786ad7-7cd7-477c-916a-b9c5c3e5e6f0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784579083525
+      },
+      {
+        "executionId": "44715419-c1c2-48d0-8d82-174a72be3bf0",
+        "chatSessionId": "sess_7aa73d0b-0e85-4c5a-ada2-dad4b738e8d1",
+        "timestamp": 1784616800742
+      }
+    ]
+  }
+}

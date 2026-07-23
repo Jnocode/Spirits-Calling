@@ -1,0 +1,836 @@
+{
+  "schemaVersion": "1.0",
+  "packageAcceptance": "blocked",
+  "packageVersion": "0.9.0",
+  "sourceRevision": "b0d0f46",
+  "engineVersion": "5.8",
+  "cookMaps": [
+    "/Game/Maps/DemoMap"
+  ],
+  "platform": "Win64",
+  "configuration": "Shipping",
+  "ioStore": true,
+  "packagePath": "Builds/Windows",
+  "launchLog": "evidence/launch.log",
+  "smokeMatrix": {
+    "cases": [
+      {
+        "id": "smoke.b1",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/smoke.b1.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "smoke.b2",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/smoke.b2.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "smoke.b3",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/smoke.b3.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "smoke.b4-lan-host-join",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/smoke.b4-lan-host-join.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "smoke.b5-pc-vr",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/smoke.b5-pc-vr.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "smoke.b6-30",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/smoke.b6-30.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "pcvr.quest_link.menu",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/pcvr.quest_link.menu.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "pcvr.quest_link.possession",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/pcvr.quest_link.possession.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "pcvr.quest_link.summon",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/pcvr.quest_link.summon.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "pcvr.quest_link.heavy_attack",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/pcvr.quest_link.heavy_attack.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "pcvr.quest_link.return_to_spirit",
+        "status": "not_run",
+        "evidencePath": "evidence/missing/pcvr.quest_link.return_to_spirit.missing",
+        "note": "",
+        "timestamp": "2026-07-23T15:26:58Z"
+      },
+      {
+        "id": "package.launch",
+        "status": "blocked",
+        "evidencePath": "Saved/Validation/package_launch.json",
+        "note": "report does not contain complete locatable live evidence",
+        "timestamp": "2026-07-23T15:26:58Z"
+      }
+    ]
+  },
+  "hardwareEvidence": {
+    "schemaVersion": "1.0",
+    "runs": [
+      {
+        "id": "pcvr.quest_link",
+        "adapter": "quest_link",
+        "executionMode": "fixture",
+        "status": "not_run",
+        "timestamp": "2026-07-23T15:26:58Z",
+        "buildVersion": "not-recorded",
+        "sourceRevision": "not-recorded",
+        "hmd": "not-recorded",
+        "runtime": "not-recorded",
+        "hardwarePresent": false,
+        "modeSelection": {
+          "selectedMode": "not-recorded",
+          "detected": false
+        },
+        "machine": {
+          "os": "not-recorded",
+          "cpu": "not-recorded",
+          "gpu": "not-recorded",
+          "ram": "not-recorded"
+        },
+        "cases": [
+          {
+            "id": "menu",
+            "status": "not_run",
+            "note": "",
+            "screenshotPath": null,
+            "logPath": null,
+            "videoPath": null
+          },
+          {
+            "id": "possession",
+            "status": "not_run",
+            "note": "",
+            "screenshotPath": null,
+            "logPath": null,
+            "videoPath": null
+          },
+          {
+            "id": "summon",
+            "status": "not_run",
+            "note": "",
+            "screenshotPath": null,
+            "logPath": null,
+            "videoPath": null
+          },
+          {
+            "id": "heavy_attack",
+            "status": "not_run",
+            "note": "",
+            "screenshotPath": null,
+            "logPath": null,
+            "videoPath": null
+          },
+          {
+            "id": "return_to_spirit",
+            "status": "not_run",
+            "note": "",
+            "screenshotPath": null,
+            "logPath": null,
+            "videoPath": null
+          }
+        ],
+        "evidencePaths": [],
+        "failureReasons": [
+          "HMD/runtime hardware was not detected",
+          "HMD model is not recorded",
+          "XR runtime is not recorded",
+          "mode selection is not PCVR_Mode"
+        ]
+      }
+    ]
+  },
+  "gates": [
+    {
+      "id": "preflight.build",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "pass",
+      "evidencePath": "Binaries/Win64/Spirits_Calling.exe",
+      "timestamp": "2026-07-23T15:26:58Z"
+    },
+    {
+      "id": "preflight.audio",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "fail",
+      "evidencePath": "RawAssets/Audio",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "raw/imported/cooked=9/9/0; ambient=blocked; report=D:\\Workspace\\03_Dev_Projects\\Spirits-Calling\\Spirits_Calling\\Saved\\Validation\\audio_validation.json",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "preflight.generated_assets",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "pass",
+      "evidencePath": "RawAssets/AI",
+      "timestamp": "2026-07-23T15:26:58Z"
+    },
+    {
+      "id": "preflight.map",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "pass",
+      "evidencePath": "Content/Maps/DemoMap.umap",
+      "timestamp": "2026-07-23T15:26:58Z"
+    },
+    {
+      "id": "preflight.config",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "pass",
+      "evidencePath": "Config/DefaultGame.ini",
+      "timestamp": "2026-07-23T15:26:58Z"
+    },
+    {
+      "id": "preflight.version",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "pass",
+      "evidencePath": "Config/DefaultGame.ini",
+      "timestamp": "2026-07-23T15:26:58Z"
+    },
+    {
+      "id": "preflight.package",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/preflight.package.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "尚未打包（P0-5 待做）",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "preflight.release_scope",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "pass",
+      "evidencePath": "Docs/Release/Release_Materials/scope.md",
+      "timestamp": "2026-07-23T15:26:58Z"
+    },
+    {
+      "id": "smoke.b1",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/smoke.b1.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "not measured",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b2",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/smoke.b2.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "not measured",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b3",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/smoke.b3.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "not measured",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b4-lan-host-join",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/smoke.b4-lan-host-join.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "not measured",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b5-pc-vr",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/smoke.b5-pc-vr.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "not measured",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b6-30",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/smoke.b6-30.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "not measured",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.steam.account_app_id",
+      "owner": "steam-release-owner",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/release.steam.account_app_id.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "release owner evidence not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.capsule_art",
+      "owner": "store-art-owner",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/release.store.capsule_art.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "release owner evidence not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.screenshots",
+      "owner": "store-capture-owner",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/release.store.screenshots.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "release owner evidence not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.trailer",
+      "owner": "trailer-owner",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/release.store.trailer.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "release owner evidence not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.legal.content_rating",
+      "owner": "legal-owner",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/release.legal.content_rating.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "release owner evidence not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.legal.eula_privacy",
+      "owner": "legal-owner",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/release.legal.eula_privacy.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "release owner evidence not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.early_access_scope",
+      "owner": "release-owner",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "Docs/Release/Release_Materials/scope.md",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "release owner evidence not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.audio.imports",
+      "owner": "audio-import-owner",
+      "priority": "P0",
+      "status": "blocked",
+      "evidencePath": "Saved/Validation/audio_validation.json",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "report does not contain complete locatable live evidence",
+      "resolutionStatus": "open",
+      "checks": [
+        {
+          "id": "audio.import.S_Alarm",
+          "source": "RawAssets/Audio/S_Alarm.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Ambient",
+          "source": "RawAssets/Audio/S_Ambient.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Attack",
+          "source": "RawAssets/Audio/S_Attack.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Click",
+          "source": "RawAssets/Audio/S_Click.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Death",
+          "source": "RawAssets/Audio/S_Death.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Defeat",
+          "source": "RawAssets/Audio/S_Defeat.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Hit",
+          "source": "RawAssets/Audio/S_Hit.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Summon",
+          "source": "RawAssets/Audio/S_Summon.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.import.S_Victory",
+          "source": "RawAssets/Audio/S_Victory.wav",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        },
+        {
+          "id": "audio.ambient.loop_or_fallback",
+          "source": "Content/Audio/S_Ambient.uasset",
+          "status": "blocked",
+          "evidencePath": "Saved/Validation/audio_validation.json",
+          "failureReason": "report does not contain complete locatable live evidence"
+        }
+      ]
+    },
+    {
+      "id": "validation.package_closure",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "not_run",
+      "evidencePath": "evidence/missing/validation.package_closure.missing",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "live validation report not supplied",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "validation.package_launch",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "blocked",
+      "evidencePath": "Saved/Validation/package_launch.json",
+      "timestamp": "2026-07-23T15:26:58Z",
+      "failureReason": "report does not contain complete locatable live evidence",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "validation.version_consistency",
+      "owner": "release-engineering",
+      "priority": "P0",
+      "status": "pass",
+      "evidencePath": "Saved/Validation/version_consistency.json",
+      "timestamp": "2026-07-23T15:26:58Z"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "preflight.build.evidence",
+      "path": "Binaries/Win64/Spirits_Calling.exe",
+      "kind": "preflight",
+      "description": "A1 編譯綠燈"
+    },
+    {
+      "id": "preflight.audio.evidence",
+      "path": "RawAssets/Audio",
+      "kind": "preflight",
+      "description": "A2 音效素材"
+    },
+    {
+      "id": "preflight.generated_assets.evidence",
+      "path": "RawAssets/AI",
+      "kind": "preflight",
+      "description": "A3 生成美術貼圖"
+    },
+    {
+      "id": "preflight.map.evidence",
+      "path": "Content/Maps/DemoMap.umap",
+      "kind": "preflight",
+      "description": "A4 主地圖 DemoMap"
+    },
+    {
+      "id": "preflight.config.evidence",
+      "path": "Config/DefaultGame.ini",
+      "kind": "preflight",
+      "description": "A5 Steam 子系統設定"
+    },
+    {
+      "id": "preflight.version.evidence",
+      "path": "Config/DefaultGame.ini",
+      "kind": "preflight",
+      "description": "A5 專案版本號"
+    },
+    {
+      "id": "preflight.package.evidence",
+      "path": "evidence/missing/preflight.package.missing",
+      "kind": "preflight",
+      "description": "A6 打包產物"
+    },
+    {
+      "id": "preflight.release_scope.evidence",
+      "path": "Docs/Release/Release_Materials/scope.md",
+      "kind": "preflight",
+      "description": "A7 商店 scope 宣告"
+    },
+    {
+      "id": "smoke.b1.evidence",
+      "path": "evidence/missing/smoke.b1.missing",
+      "kind": "smoke",
+      "description": "single-player Easy"
+    },
+    {
+      "id": "smoke.b2.evidence",
+      "path": "evidence/missing/smoke.b2.missing",
+      "kind": "smoke",
+      "description": "single-player Normal"
+    },
+    {
+      "id": "smoke.b3.evidence",
+      "path": "evidence/missing/smoke.b3.missing",
+      "kind": "smoke",
+      "description": "single-player Hard"
+    },
+    {
+      "id": "smoke.b4-lan-host-join.evidence",
+      "path": "evidence/missing/smoke.b4-lan-host-join.missing",
+      "kind": "smoke",
+      "description": "LAN host and join"
+    },
+    {
+      "id": "smoke.b5-pc-vr.evidence",
+      "path": "evidence/missing/smoke.b5-pc-vr.missing",
+      "kind": "smoke",
+      "description": "PCVR smoke"
+    },
+    {
+      "id": "smoke.b6-30.evidence",
+      "path": "evidence/missing/smoke.b6-30.missing",
+      "kind": "smoke",
+      "description": "30-minute stability"
+    },
+    {
+      "id": "release.steam.account_app_id.evidence",
+      "path": "evidence/missing/release.steam.account_app_id.missing",
+      "kind": "release",
+      "description": "release.steam.account_app_id"
+    },
+    {
+      "id": "release.store.capsule_art.evidence",
+      "path": "evidence/missing/release.store.capsule_art.missing",
+      "kind": "release",
+      "description": "release.store.capsule_art"
+    },
+    {
+      "id": "release.store.screenshots.evidence",
+      "path": "evidence/missing/release.store.screenshots.missing",
+      "kind": "release",
+      "description": "release.store.screenshots"
+    },
+    {
+      "id": "release.store.trailer.evidence",
+      "path": "evidence/missing/release.store.trailer.missing",
+      "kind": "release",
+      "description": "release.store.trailer"
+    },
+    {
+      "id": "release.legal.content_rating.evidence",
+      "path": "evidence/missing/release.legal.content_rating.missing",
+      "kind": "release",
+      "description": "release.legal.content_rating"
+    },
+    {
+      "id": "release.legal.eula_privacy.evidence",
+      "path": "evidence/missing/release.legal.eula_privacy.missing",
+      "kind": "release",
+      "description": "release.legal.eula_privacy"
+    },
+    {
+      "id": "release.store.early_access_scope.evidence",
+      "path": "Docs/Release/Release_Materials/scope.md",
+      "kind": "release",
+      "description": "release.store.early_access_scope"
+    },
+    {
+      "id": "validation.package_closure.evidence",
+      "path": "evidence/missing/validation.package_closure.missing",
+      "kind": "release",
+      "description": "validation.package_closure"
+    },
+    {
+      "id": "validation.package_launch.report",
+      "path": "Saved/Validation/package_launch.json",
+      "kind": "validation-report",
+      "description": "package_launch"
+    },
+    {
+      "id": "release.audio.imports.report",
+      "path": "Saved/Validation/audio_validation.json",
+      "kind": "validation-report",
+      "description": "audio_validation"
+    },
+    {
+      "id": "validation.version_consistency.report",
+      "path": "Saved/Validation/version_consistency.json",
+      "kind": "validation-report",
+      "description": "version_consistency"
+    }
+  ],
+  "unresolvedIssues": [
+    {
+      "id": "preflight.audio.issue",
+      "gateId": "preflight.audio",
+      "reason": "raw/imported/cooked=9/9/0; ambient=blocked; report=D:\\Workspace\\03_Dev_Projects\\Spirits-Calling\\Spirits_Calling\\Saved\\Validation\\audio_validation.json",
+      "evidencePath": "RawAssets/Audio",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "preflight.package.issue",
+      "gateId": "preflight.package",
+      "reason": "尚未打包（P0-5 待做）",
+      "evidencePath": "evidence/missing/preflight.package.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b1.issue",
+      "gateId": "smoke.b1",
+      "reason": "gate did not pass",
+      "evidencePath": "evidence/missing/smoke.b1.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b2.issue",
+      "gateId": "smoke.b2",
+      "reason": "gate did not pass",
+      "evidencePath": "evidence/missing/smoke.b2.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b3.issue",
+      "gateId": "smoke.b3",
+      "reason": "gate did not pass",
+      "evidencePath": "evidence/missing/smoke.b3.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b4-lan-host-join.issue",
+      "gateId": "smoke.b4-lan-host-join",
+      "reason": "gate did not pass",
+      "evidencePath": "evidence/missing/smoke.b4-lan-host-join.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b5-pc-vr.issue",
+      "gateId": "smoke.b5-pc-vr",
+      "reason": "gate did not pass",
+      "evidencePath": "evidence/missing/smoke.b5-pc-vr.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "smoke.b6-30.issue",
+      "gateId": "smoke.b6-30",
+      "reason": "gate did not pass",
+      "evidencePath": "evidence/missing/smoke.b6-30.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.steam.account_app_id.issue",
+      "gateId": "release.steam.account_app_id",
+      "reason": "release owner evidence not supplied",
+      "evidencePath": "evidence/missing/release.steam.account_app_id.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.capsule_art.issue",
+      "gateId": "release.store.capsule_art",
+      "reason": "release owner evidence not supplied",
+      "evidencePath": "evidence/missing/release.store.capsule_art.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.screenshots.issue",
+      "gateId": "release.store.screenshots",
+      "reason": "release owner evidence not supplied",
+      "evidencePath": "evidence/missing/release.store.screenshots.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.trailer.issue",
+      "gateId": "release.store.trailer",
+      "reason": "release owner evidence not supplied",
+      "evidencePath": "evidence/missing/release.store.trailer.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.legal.content_rating.issue",
+      "gateId": "release.legal.content_rating",
+      "reason": "release owner evidence not supplied",
+      "evidencePath": "evidence/missing/release.legal.content_rating.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.legal.eula_privacy.issue",
+      "gateId": "release.legal.eula_privacy",
+      "reason": "release owner evidence not supplied",
+      "evidencePath": "evidence/missing/release.legal.eula_privacy.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.store.early_access_scope.issue",
+      "gateId": "release.store.early_access_scope",
+      "reason": "release owner evidence not supplied",
+      "evidencePath": "Docs/Release/Release_Materials/scope.md",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "validation.package_closure.issue",
+      "gateId": "validation.package_closure",
+      "reason": "live validation report not supplied",
+      "evidencePath": "evidence/missing/validation.package_closure.missing",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "validation.package_launch.issue",
+      "gateId": "validation.package_launch",
+      "reason": "report does not contain complete locatable live evidence",
+      "evidencePath": "Saved/Validation/package_launch.json",
+      "resolutionStatus": "open"
+    },
+    {
+      "id": "release.audio.imports.issue",
+      "gateId": "release.audio.imports",
+      "reason": "report does not contain complete locatable live evidence",
+      "evidencePath": "Saved/Validation/audio_validation.json",
+      "resolutionStatus": "open"
+    }
+  ],
+  "earliestFailure": {
+    "sequence": 1,
+    "step": "A2 音效素材",
+    "reason": "raw/imported/cooked=9/9/0; ambient=blocked; report=D:\\Workspace\\03_Dev_Projects\\Spirits-Calling\\Spirits_Calling\\Saved\\Validation\\audio_validation.json",
+    "logPath": "RawAssets/Audio",
+    "timestamp": "2026-07-23T15:26:58Z"
+  },
+  "machine": {
+    "os": "not-recorded",
+    "cpu": "not-recorded",
+    "gpu": "not-recorded",
+    "ram": "not-recorded"
+  },
+  "stability": {
+    "status": "not_run",
+    "measurementStatus": "not_run",
+    "readinessEligible": false,
+    "executionMode": "live",
+    "evidenceSource": "not-recorded",
+    "requestedDurationSeconds": 1800,
+    "observedDurationSeconds": 0,
+    "queryTimeoutSeconds": 5,
+    "maxAllowedHangSeconds": 10,
+    "startedAt": "not-recorded",
+    "endedAt": "not-recorded",
+    "crashDetected": false,
+    "crashTimestamp": null,
+    "hangDetected": false,
+    "maxConsecutiveHangSeconds": 0,
+    "queries": [],
+    "memory": {
+      "atFiveMinutes": {
+        "timestamp": "not-recorded",
+        "privateWorkingSetBytes": null
+      },
+      "atEnd": {
+        "timestamp": "not-recorded",
+        "privateWorkingSetBytes": null
+      },
+      "growthRatio": null,
+      "maxGrowthRatio": 0.2,
+      "withinThreshold": false
+    },
+    "machine": {
+      "os": "not-recorded",
+      "cpu": "not-recorded",
+      "gpu": "not-recorded",
+      "ram": "not-recorded"
+    },
+    "failureReasons": [
+      "stability telemetry has not been run"
+    ]
+  },
+  "releaseScope": {
+    "documentPath": "Docs/Release/Release_Materials/scope.md",
+    "includedCapabilities": [
+      "PC single-player",
+      "LAN/friend connection",
+      "PCVR"
+    ],
+    "excludedCapabilities": [
+      "public matchmaking",
+      "dedicated servers",
+      "Nakama authentication",
+      "anti-cheat"
+    ]
+  }
+}
