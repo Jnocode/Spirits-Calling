@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "spirits-calling.generated-assets",
+  "manifestVersion": "1.0.0",
+  "sourceRoot": "RawAssets/AI",
+  "runtimeRoots": {
+    "civilization_pattern": "/Game/Textures/Civilizations",
+    "arena_texture": "/Game/Textures/Arenas"
+  },
+  "entries": [
+    {
+      "id": "civilization.east.pattern",
+      "source": "RawAssets/AI/Civilizations/East/East_pattern.png",
+      "category": "civilization_pattern",
+      "civilization": "East",
+      "runtimePath": "/Game/Textures/Civilizations/East_pattern",
+      "destinationPath": "/Game/Textures/Civilizations",
+      "destinationName": "East_pattern",
+      "hook": "BodyMID.PatternTex|SoulShrine.PatternTex",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "d88ec5f34c6b48eabede54779c8e212a27a6935f402225e6656b102494b81beb",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "civilization.norse.pattern",
+      "source": "RawAssets/AI/Civilizations/Norse/Norse_pattern.png",
+      "category": "civilization_pattern",
+      "civilization": "Norse",
+      "runtimePath": "/Game/Textures/Civilizations/Norse_pattern",
+      "destinationPath": "/Game/Textures/Civilizations",
+      "destinationName": "Norse_pattern",
+      "hook": "BodyMID.PatternTex|SoulShrine.PatternTex",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "72a0d666b581693821eb63521d0c2fd5497bdc42937c8a79f9de9536e97550c9",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "civilization.egypt.pattern",
+      "source": "RawAssets/AI/Civilizations/Egypt/Egypt_pattern.png",
+      "category": "civilization_pattern",
+      "civilization": "Egypt",
+      "runtimePath": "/Game/Textures/Civilizations/Egypt_pattern",
+      "destinationPath": "/Game/Textures/Civilizations",
+      "destinationName": "Egypt_pattern",
+      "hook": "BodyMID.PatternTex|SoulShrine.PatternTex",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "80945813e3d35716354cff42d1a84be87ccba87a7d468e3c1260b6d40ef36b52",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "civilization.cyber.pattern",
+      "source": "RawAssets/AI/Civilizations/Cyber/Cyber_pattern.png",
+      "category": "civilization_pattern",
+      "civilization": "Cyber",
+      "runtimePath": "/Game/Textures/Civilizations/Cyber_pattern",
+      "destinationPath": "/Game/Textures/Civilizations",
+      "destinationName": "Cyber_pattern",
+      "hook": "BodyMID.PatternTex|SoulShrine.PatternTex",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "2d8a91def616356f028d18eccb18f29194c327f77899af586129b0f934302f76",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "arena.void.ground",
+      "source": "RawAssets/AI/Arenas/Void/Arena_Void_ground.png",
+      "category": "arena_texture",
+      "mapStyle": "Void",
+      "surface": "ground",
+      "runtimePath": "/Game/Textures/Arenas/Void/Arena_Void_ground",
+      "destinationPath": "/Game/Textures/Arenas/Void",
+      "destinationName": "Arena_Void_ground",
+      "hook": "ArenaMaterialHook.Void.Ground",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "401c8b014ddcd84c834b75eab3cd8aaa01bee629d0968f7c2ccd578f54cd174d",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "arena.void.sky",
+      "source": "RawAssets/AI/Arenas/Void/Arena_Void_sky.png",
+      "category": "arena_texture",
+      "mapStyle": "Void",
+      "surface": "sky",
+      "runtimePath": "/Game/Textures/Arenas/Void/Arena_Void_sky",
+      "destinationPath": "/Game/Textures/Arenas/Void",
+      "destinationName": "Arena_Void_sky",
+      "hook": "ArenaMaterialHook.Void.Sky",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "4e3d9e050a0740585bf3596db6d2c35b5b0e6bc2c312605aed452bc2ea15a82e",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "arena.sands.ground",
+      "source": "RawAssets/AI/Arenas/Sands/Arena_Sands_ground.png",
+      "category": "arena_texture",
+      "mapStyle": "Sands",
+      "surface": "ground",
+      "runtimePath": "/Game/Textures/Arenas/Sands/Arena_Sands_ground",
+      "destinationPath": "/Game/Textures/Arenas/Sands",
+      "destinationName": "Arena_Sands_ground",
+      "hook": "ArenaMaterialHook.Sands.Ground",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "6d0c6b105dfe715349272d56b5d0f9d7d99e874e5dec00caab1dd334532f9760",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "arena.sands.sky",
+      "source": "RawAssets/AI/Arenas/Sands/Arena_Sands_sky.png",
+      "category": "arena_texture",
+      "mapStyle": "Sands",
+      "surface": "sky",
+      "runtimePath": "/Game/Textures/Arenas/Sands/Arena_Sands_sky",
+      "destinationPath": "/Game/Textures/Arenas/Sands",
+      "destinationName": "Arena_Sands_sky",
+      "hook": "ArenaMaterialHook.Sands.Sky",
+      "cookClass": "runtime",
+      "import": {
+        "replaceExisting": true,
+        "sourceHash": "23059018dcd0838b2f3b6d15d5e22d24e319fccd6056e21e924f8bcecb342921",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "source_verified"
+      }
+    },
+    {
+      "id": "store.capsule.concept",
+      "source": "RawAssets/AI/Store/Store_capsule_concept.png",
+      "category": "store_draft",
+      "runtimePath": null,
+      "destinationPath": null,
+      "destinationName": null,
+      "hook": "no-hook-assigned",
+      "cookClass": "store_only",
+      "import": {
+        "replaceExisting": false,
+        "sourceHash": "da92dd6388249a3cf29548f586a588225e0b7a1b8b2efe130591656a33cc5b73",
+        "timestampUtc": "2026-07-20T18:32:14Z",
+        "result": "store_only_excluded"
+      }
+    }
+  ]
+}
