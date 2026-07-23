@@ -28,7 +28,11 @@ def build_version_report(project_root: Path | str, *, execution_mode: str = "liv
     ini_values: dict[str, str] = {}
     metadata: dict[str, Any] = {}
 
-    parser = configparser.ConfigParser(interpolation=None, strict=True)
+    # strict=False so Unreal's repeated array syntax (e.g. several
+    # +DirectoriesToAlwaysCook= lines) does not abort the whole parse with a
+    # DuplicateOptionError. The version fields we read occur once, so keeping the
+    # last value for any duplicated key does not change their result.
+    parser = configparser.ConfigParser(interpolation=None, strict=False)
     parser.optionxform = str
     try:
         with ini_path.open(encoding="utf-8-sig") as handle:

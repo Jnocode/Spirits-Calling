@@ -102,8 +102,21 @@ protected:
 	UPROPERTY() TObjectPtr<class APostProcessVolume> PPActor;
 
 	void UpdateMood(float DeltaSeconds);
+	/** Documented ambient fallback: S_Ambient is retriggered every ~11.2s (no loop
+	 *  flag on the asset). Extracted so automation can observe the retrigger live. */
+	void AdvanceAmbientBed(float DeltaSeconds);
 	float ShrineScanAccum = 0.f;
 	float LocalShrinePct = 1.f;
 	float MoodTime = 0.f;
 	float AmbientAccum = 0.f;
+
+#if WITH_DEV_AUTOMATION_TESTS
+public:
+	/** Live observation seam: how many times the ambient bed retriggered S_Ambient. */
+	int32 GetAmbientRetriggerCountForAutomation() const { return AmbientRetriggerCountForAutomation; }
+	/** Drives the real ambient fallback so automation can observe it live. */
+	void AdvanceAmbientBedForAutomation(float DeltaSeconds) { AdvanceAmbientBed(DeltaSeconds); }
+private:
+	int32 AmbientRetriggerCountForAutomation = 0;
+#endif
 };

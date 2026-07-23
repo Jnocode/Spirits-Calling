@@ -380,14 +380,21 @@ void AArenaBuilder::Tick(float DeltaSeconds)
 	if (GetNetMode() != NM_DedicatedServer)
 	{
 		UpdateMood(DeltaSeconds);
+		AdvanceAmbientBed(DeltaSeconds);
+	}
+}
 
-		// Ambient wind bed (retriggered, no loop flag needed on the asset).
-		AmbientAccum -= DeltaSeconds;
-		if (AmbientAccum <= 0.f)
-		{
-			SpiritsAudio::Play2D(this, TEXT("S_Ambient"), 0.35f);
-			AmbientAccum = 11.2f;
-		}
+void AArenaBuilder::AdvanceAmbientBed(float DeltaSeconds)
+{
+	// Ambient wind bed (retriggered, no loop flag needed on the asset).
+	AmbientAccum -= DeltaSeconds;
+	if (AmbientAccum <= 0.f)
+	{
+		SpiritsAudio::Play2D(this, TEXT("S_Ambient"), 0.35f);
+		AmbientAccum = 11.2f;
+#if WITH_DEV_AUTOMATION_TESTS
+		++AmbientRetriggerCountForAutomation;
+#endif
 	}
 }
 
