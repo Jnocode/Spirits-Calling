@@ -9,8 +9,8 @@
 
 namespace
 {
-	constexpr int32 PropertyIterations = 512;
-	constexpr int32 PropertySeed = 0x5EED2026;
+	constexpr int32 P2PropertyIterations = 512;
+	constexpr int32 P2PropertySeed = 0x5EED2026;
 
 	struct FJoinAttemptProbe
 	{
@@ -72,7 +72,7 @@ namespace
 	{
 		return FString::Printf(
 			TEXT("seed=%d iteration=%d mapSelection=%d clientCount=%d join=%s"),
-			PropertySeed,
+			P2PropertySeed,
 			Iteration,
 			MapSelection,
 			ClientCount,
@@ -89,11 +89,11 @@ bool FSpiritsPropertyP2MapReplicationAutomationTest::RunTest(const FString& Para
 {
 	// Feature: spirits-calling-requirements, Property 2
 	// Generated input count intentionally exceeds the required 100 iterations.
-	FRandomStream Random(PropertySeed);
+	FRandomStream Random(P2PropertySeed);
 	int32 SuccessfulJoins = 0;
 	int32 FailedJoins = 0;
 
-	for (int32 Iteration = 0; Iteration < PropertyIterations; ++Iteration)
+	for (int32 Iteration = 0; Iteration < P2PropertyIterations; ++Iteration)
 	{
 		const int32 MapSelection = GenerateMapSelection(Random, Iteration);
 		const int32 ExpectedMapIndex = SpiritsRules::NormalizeMapIndex(MapSelection);
@@ -173,8 +173,8 @@ bool FSpiritsPropertyP2MapReplicationAutomationTest::RunTest(const FString& Para
 		}
 	}
 
-	TestEqual(TEXT("generated successful join cases"), SuccessfulJoins, PropertyIterations / 2);
-	TestEqual(TEXT("generated failed join cases"), FailedJoins, PropertyIterations / 2);
+	TestEqual(TEXT("generated successful join cases"), SuccessfulJoins, P2PropertyIterations / 2);
+	TestEqual(TEXT("generated failed join cases"), FailedJoins, P2PropertyIterations / 2);
 	return true;
 }
 #endif

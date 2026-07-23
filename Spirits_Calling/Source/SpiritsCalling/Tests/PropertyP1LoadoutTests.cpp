@@ -6,8 +6,8 @@
 
 namespace
 {
-	constexpr int32 PropertyIterations = 256;
-	constexpr int32 PropertySeed = 0x51C1A11;
+	constexpr int32 P1PropertyIterations = 256;
+	constexpr int32 P1PropertySeed = 0x51C1A11;
 
 	FString DescribeArchetype(const FMinionArchetype& Archetype)
 	{
@@ -78,10 +78,10 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 
 bool FSpiritsCivilizationLoadoutPropertyTest::RunTest(const FString& Parameters)
 {
-	FRandomStream Generator(PropertySeed);
+	FRandomStream Generator(P1PropertySeed);
 	bool bSawCivilization[SpiritsRules::Civilizations] = { false, false, false, false };
 
-	for (int32 Iteration = 0; Iteration < PropertyIterations; ++Iteration)
+	for (int32 Iteration = 0; Iteration < P1PropertyIterations; ++Iteration)
 	{
 		const int32 CivilizationValue = Generator.RandRange(0, SpiritsRules::Civilizations - 1);
 		const int32 ArchetypeIndex = Generator.RandRange(0, SpiritsRules::ArchetypesPerCivilization - 1);
@@ -89,7 +89,7 @@ bool FSpiritsCivilizationLoadoutPropertyTest::RunTest(const FString& Parameters)
 		const TArray<FMinionArchetype> Loadout = SpiritsRules::BuildCivLoadout(Civilization);
 		const FString Context = FString::Printf(
 			TEXT("seed=%d iteration=%d civilization=%d archetypeIndex=%d"),
-			PropertySeed,
+			P1PropertySeed,
 			Iteration,
 			CivilizationValue,
 			ArchetypeIndex);
@@ -178,7 +178,7 @@ bool FSpiritsCivilizationLoadoutPropertyTest::RunTest(const FString& Parameters)
 	for (int32 CivilizationValue = 0; CivilizationValue < SpiritsRules::Civilizations; ++CivilizationValue)
 	{
 		TestTrue(
-			FString::Printf(TEXT("seed=%d generated civilization %d at least once"), PropertySeed, CivilizationValue),
+			FString::Printf(TEXT("seed=%d generated civilization %d at least once"), P1PropertySeed, CivilizationValue),
 			bSawCivilization[CivilizationValue]);
 	}
 

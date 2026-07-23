@@ -7,8 +7,8 @@
 
 namespace
 {
-	constexpr int32 PropertyIterations = 256;
-	constexpr int32 PropertySeed = 0xA7002026;
+	constexpr int32 P7PropertyIterations = 256;
+	constexpr int32 P7PropertySeed = 0xA7002026;
 
 	enum class ECommandType : uint8
 	{
@@ -528,12 +528,12 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 
 bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 {
-	FRandomStream Generator(PropertySeed);
+	FRandomStream Generator(P7PropertySeed);
 	int32 SuccessfulJoins = 0;
 	int32 FailedJoins = 0;
 	int32 DisconnectCases = 0;
 
-	for (int32 Iteration = 0; Iteration < PropertyIterations; ++Iteration)
+	for (int32 Iteration = 0; Iteration < P7PropertyIterations; ++Iteration)
 	{
 		FReplicatedMatchModel Model(Generator);
 		const bool bJoinSucceeded = (Iteration % 3) != 0;
@@ -545,9 +545,9 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 		else
 		{
 			++FailedJoins;
-			TestTrue(FString::Printf(TEXT("seed=%d iteration=%d failed join keeps host operable"), PropertySeed, Iteration), Model.IsHostOperable());
-			TestFalse(FString::Printf(TEXT("seed=%d iteration=%d failed join has no connected joiner"), PropertySeed, Iteration), Model.HasJoiner());
-			TestFalse(FString::Printf(TEXT("seed=%d iteration=%d failed join does not establish Match"), PropertySeed, Iteration), Model.IsMatchConnected());
+			TestTrue(FString::Printf(TEXT("seed=%d iteration=%d failed join keeps host operable"), P7PropertySeed, Iteration), Model.IsHostOperable());
+			TestFalse(FString::Printf(TEXT("seed=%d iteration=%d failed join has no connected joiner"), P7PropertySeed, Iteration), Model.HasJoiner());
+			TestFalse(FString::Printf(TEXT("seed=%d iteration=%d failed join does not establish Match"), P7PropertySeed, Iteration), Model.IsMatchConnected());
 		}
 
 		const int32 SettingsClient = bJoinSucceeded ? 1 : 0;
@@ -564,7 +564,7 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 		Model.SubmitCommand(SettingsA, Generator.RandRange(0, 3));
 		Model.SubmitCommand(SettingsB, Generator.RandRange(0, 3));
 		Model.DrainUntilStable();
-		if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("settings")))
+		if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("settings")))
 		{
 			return false;
 		}
@@ -572,14 +572,14 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 		FMatchCommand Start = MakeCommand(0, ECommandType::StartMatch, Iteration * 10 + 3);
 		Model.SubmitCommand(Start, Generator.RandRange(0, 3));
 		Model.DrainUntilStable();
-		if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("phase InProgress")))
+		if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("phase InProgress")))
 		{
 			return false;
 		}
 		if (Model.Host().Phase != ESpiritsMatchPhase::InProgress)
 		{
 			AddError(FString::Printf(TEXT("P7 counterexample seed=%d iteration=%d command=StartMatch host phase=%d log=%s"),
-				PropertySeed, Iteration, static_cast<int32>(Model.Host().Phase), *Model.DescribeLog()));
+				P7PropertySeed, Iteration, static_cast<int32>(Model.Host().Phase), *Model.DescribeLog()));
 			return false;
 		}
 
@@ -592,7 +592,7 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 				Model.DisconnectClient(1);
 				bDisconnected = true;
 				++DisconnectCases;
-				if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("disconnect")))
+				if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("disconnect")))
 				{
 					return false;
 				}
@@ -613,11 +613,11 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 			Model.SubmitCommand(Menu, Generator.RandRange(0, 3));
 		}
 		Model.DrainUntilStable();
-		if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("summon"))) return false;
+		if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("summon"))) return false;
 		if (!Model.Host().bSummonAccepted)
 		{
 			AddError(FString::Printf(TEXT("P7 counterexample seed=%d iteration=%d command=Summon was not accepted log=%s"),
-				PropertySeed, Iteration, *Model.DescribeLog()));
+				P7PropertySeed, Iteration, *Model.DescribeLog()));
 			return false;
 		}
 
@@ -625,11 +625,11 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 		FMatchCommand Possess = MakeCommand(0, ECommandType::Possess, Iteration * 10 + 7);
 		Model.SubmitCommand(Possess, Generator.RandRange(0, 3));
 		Model.DrainUntilStable();
-		if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("possession"))) return false;
+		if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("possession"))) return false;
 		if (!Model.Host().bPossessionAccepted)
 		{
 			AddError(FString::Printf(TEXT("P7 counterexample seed=%d iteration=%d command=Possess was not accepted log=%s"),
-				PropertySeed, Iteration, *Model.DescribeLog()));
+				P7PropertySeed, Iteration, *Model.DescribeLog()));
 			return false;
 		}
 
@@ -637,11 +637,11 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 		FMatchCommand Combat = MakeCommand(0, ECommandType::Combat, Iteration * 10 + 8);
 		Model.SubmitCommand(Combat, Generator.RandRange(0, 3));
 		Model.DrainUntilStable();
-		if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("combat"))) return false;
+		if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("combat"))) return false;
 		if (!Model.Host().bCombatAccepted)
 		{
 			AddError(FString::Printf(TEXT("P7 counterexample seed=%d iteration=%d command=Combat was not accepted log=%s"),
-				PropertySeed, Iteration, *Model.DescribeLog()));
+				P7PropertySeed, Iteration, *Model.DescribeLog()));
 			return false;
 		}
 
@@ -649,7 +649,7 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 		if (bDisconnected)
 		{
 			FMatchCommand DisconnectedInput = MakeCommand(1, ECommandType::Move, Iteration * 10 + 9);
-			TestFalse(FString::Printf(TEXT("seed=%d iteration=%d disconnected client cannot submit input"), PropertySeed, Iteration),
+			TestFalse(FString::Printf(TEXT("seed=%d iteration=%d disconnected client cannot submit input"), P7PropertySeed, Iteration),
 				Model.SubmitCommand(DisconnectedInput, 0));
 		}
 
@@ -658,28 +658,28 @@ bool FSpiritsPropertyP7LanConvergenceTest::RunTest(const FString& Parameters)
 		Model.SubmitCommand(RemainingMove, Generator.RandRange(0, 3));
 		Model.SubmitCommand(RemainingMenu, Generator.RandRange(0, 3));
 		Model.DrainUntilStable();
-		if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("remaining-client liveness"))) return false;
+		if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("remaining-client liveness"))) return false;
 		if (Model.Host().MovementEvents < 1 || Model.Host().MenuEvents < 1)
 		{
 			AddError(FString::Printf(TEXT("P7 counterexample seed=%d iteration=%d remaining client lost input movement=%d menu=%d log=%s"),
-				PropertySeed, Iteration, Model.Host().MovementEvents, Model.Host().MenuEvents, *Model.DescribeLog()));
+				P7PropertySeed, Iteration, Model.Host().MovementEvents, Model.Host().MenuEvents, *Model.DescribeLog()));
 			return false;
 		}
 
 		FMatchCommand End = MakeCommand(0, ECommandType::EndMatch, Iteration * 10 + 12);
 		Model.SubmitCommand(End, Generator.RandRange(0, 3));
 		Model.DrainUntilStable();
-		if (!CheckStable(*this, Model, Iteration, PropertySeed, TEXT("phase Ended/winner"))) return false;
+		if (!CheckStable(*this, Model, Iteration, P7PropertySeed, TEXT("phase Ended/winner"))) return false;
 		if (Model.Host().Phase != ESpiritsMatchPhase::Ended || Model.Host().Winner == SpiritsTeams::NoTeam)
 		{
 			AddError(FString::Printf(TEXT("P7 counterexample seed=%d iteration=%d command=EndMatch phase=%d winner=%d log=%s"),
-				PropertySeed, Iteration, static_cast<int32>(Model.Host().Phase), Model.Host().Winner, *Model.DescribeLog()));
+				P7PropertySeed, Iteration, static_cast<int32>(Model.Host().Phase), Model.Host().Winner, *Model.DescribeLog()));
 			return false;
 		}
 	}
 
-	const int32 ExpectedFailedJoins = ((PropertyIterations - 1) / 3) + 1;
-	const int32 ExpectedSuccessfulJoins = PropertyIterations - ExpectedFailedJoins;
+	const int32 ExpectedFailedJoins = ((P7PropertyIterations - 1) / 3) + 1;
+	const int32 ExpectedSuccessfulJoins = P7PropertyIterations - ExpectedFailedJoins;
 	TestEqual(TEXT("generated successful Join IP cases"), SuccessfulJoins, ExpectedSuccessfulJoins);
 	TestEqual(TEXT("generated failed Join IP cases"), FailedJoins, ExpectedFailedJoins);
 	TestTrue(TEXT("generated optional disconnect cases"), DisconnectCases > 0);
