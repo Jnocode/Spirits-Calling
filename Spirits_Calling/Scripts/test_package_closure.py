@@ -102,6 +102,36 @@ class PackageClosureFixtures(unittest.TestCase):
         issues = validate_package_closure(package, asset_manifest=assets)
         self.assertTrue(any(item.code == "Package.MissingClass" and item.reference == "SpiritVRPawn" for item in issues))
 
+    def test_logical_root_binding_satisfies_cpp_backed_root_and_fails_closed(self) -> None:
+        # Real cook: PCVRMenu/AchievementFallback are C++-provided (UMainMenuWidget /
+        # USpiritsAchievements native classes), not /Game assets. Remove the asset
+        # stand-ins and bind the logical roots to their proven native classes.
+        package, assets = self._fixture()
+        package["objects"] = [
+            item for item in package["objects"]
+            if item["path"] not in ("/Game/UI/PCVRMenu", "/Game/Systems/AchievementFallback")
+        ]
+        package["objects"].append({"path": "/Script/SpiritsCalling.MainMenuWidget"})
+        package["objects"].append({"path": "/Script/SpiritsCalling.SpiritsAchievements"})
+        package["logicalRootBindings"] = {
+            "PCVRMenu": "/Script/SpiritsCalling.MainMenuWidget",
+            "AchievementFallback": "/Script/SpiritsCalling.SpiritsAchievements",
+        }
+        issues = validate_package_closure(package, asset_manifest=assets)
+        self.assertEqual([], issues, [str(issue) for issue in issues])
+
+        # Fail-closed: a binding whose target object is absent must NOT satisfy.
+        broken = copy.deepcopy(package)
+        broken["objects"] = [
+            item for item in broken["objects"]
+            if item["path"] != "/Script/SpiritsCalling.MainMenuWidget"
+        ]
+        broken_issues = validate_package_closure(broken, asset_manifest=assets)
+        self.assertTrue(
+            any(item.code == "Package.MissingAsset" and item.reference == "PCVRMenu" for item in broken_issues),
+            [str(issue) for issue in broken_issues],
+        )
+
     def test_staged_json_and_iostore_text_reader_are_reusable(self) -> None:
         with tempfile.TemporaryDirectory() as root:
             root_path = Path(root)

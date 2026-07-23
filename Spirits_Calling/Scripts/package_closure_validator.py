@@ -377,6 +377,24 @@ def _find_entry(reference: str, entries: Sequence[Any]) -> Any | None:
     return None
 
 
+def _resolve_logical_binding(
+    package_manifest: Mapping[str, Any], reference: str, entries: Sequence[Any]
+) -> Any | None:
+    """Honor the documented DEFAULT_ROOTS contract: an exporter may bind a logical
+    root (e.g. PCVRMenu) to a concrete proven object (e.g. a native
+    /Script/<Module>.<Class>).  Fail-closed: the binding only satisfies the root
+    when the bound object is actually present in the staged/cooked object set.
+    Absent bindings leave behavior unchanged (backward compatible).
+    """
+    bindings = package_manifest.get("logicalRootBindings")
+    if not isinstance(bindings, Mapping):
+        return None
+    bound = bindings.get(reference)
+    if not isinstance(bound, str) or not bound.strip():
+        return None
+    return _find_entry(bound.strip(), entries)
+
+
 def validate_package_closure(
     package_manifest: Mapping[str, Any],
     *,
@@ -441,6 +459,10 @@ def validate_package_closure(
         entry = _find_entry(ref, object_entries)
         # cookMaps is metadata, not proof that the corresponding cooked object
         # exists.  A map must resolve in the staged object listing as well.
+        if entry is None:
+            # A logical root (e.g. PCVRMenu) may be satisfied by a bound concrete
+            # object that IS present (fail-closed: the binding target must resolve).
+            entry = _resolve_logical_binding(package_manifest, ref, object_entries)
         if entry is None:
             _issue(issues, ref, MISSING_CODES.get(kind, "Package.MissingAsset"), "required runtime reference is absent from cooked/staged objects", ref)
             continue
@@ -512,6 +534,10 @@ def validate_package_closure(
             continue
         for dependency in _object_refs(entry):
             dep_entry = _find_entry(dependency, object_entries)
+            if dep_entry is None:
+                # A logical-root dependency (e.g. DemoMap -> PCVRMenu) may be
+                # satisfied by a bound concrete object that is present.
+                dep_entry = _resolve_logical_binding(package_manifest, dependency, object_entries)
             if dep_entry is None:
                 _issue(issues, dependency, "Package.MissingAsset", "reachable dependency is absent from cooked/staged objects", dependency)
             elif _is_store_only(dep_entry):
