@@ -4,16 +4,15 @@
 
 本計畫把 `requirements.md` 的 Requirement 1–8 與 `design.md` 的五根設計柱轉成增量、可驗證的實作任務。順序鐵律：**核心循環先好玩 → 社交/內容/美術才有價值**。每過一 phase 送審計團（Feynman/Karpathy/Musk）維持方向不歪。
 
-> **給 Kiro / 實作者**：這是 game-design pivot。P0（設計鎖定）**必須先完成**——它把 `requirements.md` 的 8 個 [TBD] / Open Design Decisions 補成可測數值，之後 P1+ 才動工。P0 未完成前不得大規模寫玩法程式碼。既有基礎設施（魂體 pawn、義體戰鬥、Match FSM、AArenaBuilder、Nakama scaffold、打包鏈）重用不重寫。
+> **給 Kiro / 實作者**：這是 game-design pivot。**P0（設計鎖定）已完成**——8 項設計決策已於 2026-07-24 拍板並寫入 `requirements.md` 的 [DECIDED] 準則（見 §Design Decisions — LOCKED），**P1 可直接開工**。既有基礎設施（魂體 pawn、義體戰鬥、Match FSM、AArenaBuilder、Nakama scaffold、打包鏈）重用不重寫。
 
 ## Tasks
 
-- [ ] 0. **設計鎖定（P0，Jun 拍板）** — 把 Open Design Decisions 補成可測準則
-  - **目標：** 由專案負責人拍板 `requirements.md` §Open Design Decisions 的 8 項，將 Req 1.5/2.5/3.5/5.5 的 [TBD] 補成具體、可測的數值與機制。
-  - **涉及：** `requirements.md`（補 [TBD]→[DECIDED]）、`design.md` §7。
-  - **完成條件：** 8 項全部有明確決定；心靈門檻/階級數、義體耗損、run 時序、技能數、天賦形式、RTS 程度、終局護欄、四文明靈視內容皆可寫成驗收準則。
-  - **不動工鐵律：** 本 phase 是純設計決策，不寫玩法程式碼。
-  - _Requirements: 1.5, 2.5, 3.5, 5.5; Open Design Decisions 1–8_
+- [x] 0. **設計鎖定（P0，Jun 拍板）** — 已於 2026-07-24 整包拍板完成
+  - **目標：** 由專案負責人拍板 §Design Decisions 的 8 項，將 Req 1.5/2.5/3.5/5.5 的 [TBD] 補成具體、可測的數值與機制。
+  - **涉及：** `requirements.md`（[TBD]→[DECIDED]，新增 Req 2.6/3.6/3.7/4.4）、`design.md` §7。
+  - **完成 ✅：** 8 項全部拍板並寫入 [DECIDED]：心靈 3 階(0-20/21-50/51+)、義體耐久條、run 15-20分四階段時序、每英雄 3 技能、附身三選一天賦、RTS-light、終局護欄(1-2備用義體/警訊+3秒逃生窗/心靈淨化)、四文明靈視(靈脈/盧恩/墓室/快取)。
+  - _Requirements: 1.5, 2.5, 2.6, 3.5, 3.6, 3.7, 4.4, 5.5; Design Decisions 1–8 LOCKED_
 
 - [ ] 1. **重用審計 + 魂體探索原型（P1）** — 先證明「弱靈魂探索」不無聊
   - [ ] 1.1 重用審計：盤點既有 `ASpiritPawn/ASpiritVRPawn`、`AUnitBase`、Match FSM、`AArenaBuilder`、四文明系統、Nakama scaffold 的可重用面與需改造面，產出 reuse map。
@@ -77,7 +76,7 @@
 - **重用不重寫**：`design.md` §5 的既有資產全部重用；pivot 的是玩法層，不是引擎/打包/後端。
 - **審計 gate**：P1/P3/P4 的「好不好玩」審計是硬 gate——不好玩就地修，別往下堆功能。這正是本次 pivot 的教訓（前一輪把工程做到全綠卻從沒驗證好不好玩）。
 - **舊 spec 保留**：`spirits-calling-requirements` 是基礎設施歷史紀錄，不刪不覆寫。
-- **P0 先行**：8 個 Open Design Decisions 未鎖定前，P1+ 不動工。
+- **P0 已完成**：8 項設計決策於 2026-07-24 拍板鎖定（見 requirements.md §Design Decisions — LOCKED），P1 可開工。
 
 ## Task Dependency Graph
 

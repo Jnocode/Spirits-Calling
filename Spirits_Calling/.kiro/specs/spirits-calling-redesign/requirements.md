@@ -6,7 +6,7 @@
 
 本需求以今晚（2026-07-24）設計會談收斂的**五根設計柱**為準（見 `design.md`）：節奏脊椎（反向縮圈）、核心動詞（魂體⇄義體）、核心資源（心靈）、召喚重生（義體庫存）、社交地基（Nakama）。
 
-**重要 — 數據誠信**：本需求只把**已談定的設計方向**寫成可驗收約束；今晚未談定的具體數值（心靈門檻、技能數、義體耗損、擴張時序等）列為 §Open Design Decisions，**不在本文件憑空發明**。P0 設計鎖定階段由 Jun 拍板後，才把它們補成可測 EARS 準則。
+**重要 — 數據誠信**：本需求把已談定的設計方向寫成可驗收約束。**P0 設計鎖定已於 2026-07-24 由 Jun 整包拍板完成**——原先 8 項待決數值（心靈門檻、義體耗損、run 時序、技能數、天賦形式、RTS 程度、終局護欄、四文明靈視）現已全部寫入對應 [DECIDED] 準則；詳見 §Design Decisions — LOCKED。P1+ 實作可據此開工。
 
 本需求也承接前一輪已建置且保留重用的基礎設施（見 `design.md` §5）：`ASpiritPawn/ASpiritVRPawn`、`AUnitBase` 附身戰鬥、Match FSM、`AArenaBuilder`、四文明系統、`Backend/Nakama` scaffold、`build_shipping.ps1` 打包/驗證鏈。
 
@@ -26,7 +26,7 @@
 
 ## Requirements
 
-> 註記：以下準則中，**[DECIDED]** = 今晚談定的方向性約束（可直接驗收）；**[TBD]** = 依賴 §Open Design Decisions 的數值，鎖定後補完。
+> 註記：以下準則全數為 **[DECIDED]**（可直接驗收）。P0 設計鎖定已於 2026-07-24 完成，原先待決的 8 項數值已全部補入；詳見 §Design Decisions — LOCKED。
 
 ### Requirement 1 — 成長弧線與核心資源（心靈）
 
@@ -38,7 +38,7 @@
 2. [DECIDED] THE Game SHALL 以 Psyche 作為單一核心成長資源，且 Psyche SHALL 只能透過探索行為（吸收靈脈/發現秘密/淨化封印/擊散敵靈等）累積，不得靠被動時間流逝白給。
 3. [DECIDED] WHEN 玩家的 Psyche 未達某義體階級的 Possession_Threshold，THE Game SHALL 拒絕附身該階級義體並向玩家明確指示原因。
 4. [DECIDED] THE Game SHALL 提供至少兩個由 Psyche 區分的附身階級（低階脆弱 → 高階強大），且高階義體的戰鬥能力 SHALL 明顯高於低階。
-5. [TBD] 各 Possession_Threshold 的具體數值、階級數量 SHALL 依 §Open Design Decisions 鎖定後定義並可測。
+5. [DECIDED] THE Game SHALL 以三個 Psyche 區間定義 Possession_Threshold：Psyche 0–20 → 雜兵義體（脆弱、暫時、附身即用）；Psyche 21–50 → 精英/英雄義體（3 技能、能翻盤）；Psyche 51+ → 遠古守衛義體（一次性大招、戰力約當 5–10 隻雜兵）。同一階級內高於前一階級的義體戰鬥力 SHALL 明顯更強。
 
 ### Requirement 2 — 節奏脊椎（反向縮圈）
 
@@ -50,7 +50,8 @@
 2. [DECIDED] WHILE 玩家的 Soul_Form 位於 Danger_Zone 內，THE Game SHALL 施加會消滅魂體的威脅（損失 Psyche 或結束 Run）。
 3. [DECIDED] WHILE Run 處於安全階段，THE Game SHALL 允許玩家無威脅地自由探索與學習操作（環境式教學，取代缺席的新手引導）。
 4. [DECIDED] WHEN Run 進入終局階段，THE Game SHALL 使裸奔的 Soul_Form 無法在全圖 Danger_Zone 中長時間存活，令附身/義體成為生存剛需而非可選增益。
-5. [TBD] Danger_Zone 出現時間、擴張速率、Run 總長 SHALL 依 §Open Design Decisions 鎖定。
+5. [DECIDED] THE Game SHALL 以一場 15–20 分鐘的 Run 為節奏基準，Danger_Zone 依下列時序推進：0–4 分安全（全圖無危險）；4–9 分危險出現（約佔地圖 20%）；9–15 分擴張（約佔 60%）；15 分+ 終局（約佔 90%，裸奔魂體即死）。
+6. [DECIDED] THE Game SHALL 提供終局反挫折護欄，使死亡永遠是「玩家自己賭輸」而非「地圖單方面秒殺」：(a) 玩家隨時應能備妥 1–2 個 Vessel（不會突然無退路）；(b) Soul_Form 被消滅前 SHALL 有明確警訊與至少 3 秒逃生窗口；(c) 心靈足夠時玩家 SHALL 可「淨化」一小塊 Danger_Zone 換取約 10 秒喘息。
 
 ### Requirement 3 — 魂體 ⇄ 義體 推幣式抉擇（核心動詞）
 
@@ -62,7 +63,9 @@
 2. [DECIDED] WHILE 玩家處於 Vessel，THE Game SHALL 不允許 Psyche 透過探索繼續成長（保命與成長互斥，逼出抉擇）。
 3. [DECIDED] THE Vessel SHALL 是消耗性資源（會耗損/有限），使「撤回義體」是有代價的承諾而非無限苟命。
 4. [DECIDED] WHEN 玩家的 Vessel 被摧毀或耗盡，THE Game SHALL 使玩家回到 Soul_Form 並繼續 Run（死亡=轉場，不是立即 game over），直到 Soul_Form 亦被消滅才結束 Run。
-5. [TBD] Vessel 耗損模型、撤回/再出魂成本 SHALL 依 §Open Design Decisions 鎖定。
+5. [DECIDED] THE Vessel SHALL 採耐久條耗損模型（非一次性）：Vessel 受傷累積耗損，耗損滿時崩解並將玩家彈回 Soul_Form；WHEN 玩家主動撤回 Soul_Form，THE Game SHALL 凍結保存該 Vessel 的剩餘耐久，供之後再次進入。
+6. [DECIDED] THE 精英/英雄階及以上 Vessel SHALL 各具備 3 個技能（位移/衝刺 + 招牌 AOE + 大招）加上輕/重普攻；技能 SHALL 綁定文明，使四文明英雄手感截然不同。
+7. [DECIDED] THE Game SHALL 以「附身時三選一」提供 roguelite 天賦：每次附身抽 3 個增益供玩家選 1，服務探索者的 build 發掘與成就者的成長。
 
 ### Requirement 4 — 召喚重生為義體庫存
 
@@ -73,6 +76,7 @@
 1. [DECIDED] THE Game SHALL 將召喚重定義為準備 Vessel_Inventory（事先備妥、待命的義體），而非在場上直接生成自動互K的戰鬥單位。
 2. [DECIDED] THE Game SHALL 不在 Run 開場即開放召喚/義體準備；該能力 SHALL 由 Psyche 成長解鎖。
 3. [DECIDED] WHEN 危險逼近，THE Game SHALL 允許玩家撤回至事先備妥的 Vessel 作為救命手段。
+4. [DECIDED] THE Game SHALL 維持 RTS-light：召喚僅保留為「準備義體庫存 + 決定何時下場翻盤」的輕層；深度 RTS（經濟/兵種搭配/推線）SHALL 明確排除（scope 陷阱）。
 
 ### Requirement 5 — 探索即附身（雙層地圖）
 
@@ -84,7 +88,7 @@
 2. [DECIDED] THE Game SHALL 允許玩家附身「多種對象」而非僅自方單位（至少涵蓋：一般義體、以及一種以上的地圖特殊附身目標，如中立守衛或地形物件）。
 3. [DECIDED] WHEN 玩家附身一個具視野的對象，THE Game SHALL 將該對象的視野提供給玩家（資訊即資源：附身同時是戰鬥與偵察決策）。
 4. [DECIDED] THE Game SHALL 以四文明各自的 Spirit_Vision 在同一張地圖揭示不同的隱藏內容，使同圖以不同文明重玩具有不同探索價值。
-5. [TBD] 各文明 Spirit_Vision 的具體隱藏內容、可附身特殊目標清單 SHALL 依 §Open Design Decisions 鎖定。
+5. [DECIDED] THE Game SHALL 以下列四文明 Spirit_Vision 揭示各自隱藏內容：東方（仙俠）靈脈能量流 → 高機動路徑/加速點；北歐（戰士）盧恩節點 → 戰力強化/狂暴增益；埃及（神秘）地下墓室 → 隱藏義體/遠古守衛；賽博（科技）資料快取 → 地圖情報/敵方位置揭露。可附身特殊目標 SHALL 至少涵蓋：中立遠古守衛（一次性大招）與地形物件（防禦工事）。
 
 ### Requirement 6 — 四象限融合（不偏科）
 
@@ -120,16 +124,18 @@
 2. [DECIDED] THE Redesign SHALL NOT 廢棄前一輪已驗證全綠的 packaging/closure/audio gate 驗證鏈，而是沿用其為發布驗證基礎。
 3. [DECIDED] 舊 spec `spirits-calling-requirements` SHALL 保留為基礎設施歷史紀錄，不被本 spec 覆寫刪除。
 
-## Open Design Decisions（P0 設計鎖定，Jun 拍板前不得憑空發明）
+## Design Decisions — LOCKED（P0 於 2026-07-24 由 Jun 整包拍板）
 
-1. **心靈門檻數值 + 附身階級數量**（Req 1.5）
-2. **義體耗損模型 + 撤回/再出魂成本**（Req 3.5）
-3. **Run 長度 + Danger_Zone 出現/擴張時序**（Req 2.5）
-4. **每英雄技能數量**（會談曾提 3：位移/AOE/大招，未確認）
-5. **roguelite 天賦形式**（附身三選一 / 場中升級 / 開局配裝；曾傾向前者，未確認）
-6. **RTS 層去留程度**（「召喚=義體庫存」已隱含 RTS-light；深度 RTS 明確排除）
-7. **終局反挫折護欄**（義體可管理、消滅前有警訊/逃生窗口、心靈可淨化小塊危險區；**死亡永遠是玩家賭輸而非地圖宣判**——終局生死線）
-8. **四文明靈視各揭示什麼 + 可附身特殊目標清單**（Req 5.5）
+> P0 已鎖定。以下 8 項已寫入對應 [DECIDED] 驗收準則；此處保留為決策摘要與追溯。
+
+1. **心靈門檻 + 附身階級（3 階）**（→ Req 1.5）：0–20 雜兵 / 21–50 精英英雄(3技能) / 51+ 遠古守衛(一次性大招)。
+2. **義體耗損模型**（→ Req 3.5）：耐久條，耗損滿崩解彈回魂體；撤回時凍結保存剩餘耐久。
+3. **Run 長度 + 擴張時序**（→ Req 2.5）：一場 15–20 分；0–4 安全 / 4–9 危險出現(20%) / 9–15 擴張(60%) / 15+ 終局(90%)。
+4. **每英雄技能數**（→ Req 3.6）：3 個（位移 + AOE + 大招）+ 輕/重普攻，綁定文明。
+5. **roguelite 天賦形式**（→ Req 3.7）：附身時三選一。
+6. **RTS 層程度**（→ Req 4.4）：RTS-light；深度 RTS 明確排除。
+7. **終局反挫折護欄**（→ Req 2.6）：備 1–2 義體、消滅前警訊+3秒逃生窗、心靈可淨化小塊危險區換~10秒喘息；**死亡永遠是玩家賭輸而非地圖宣判**。
+8. **四文明靈視 + 可附身特殊目標**（→ Req 5.5）：東方靈脈/北歐盧恩/埃及墓室/賽博快取；特殊目標涵蓋中立守衛與地形物件。
 
 ## Non-Goals
 
